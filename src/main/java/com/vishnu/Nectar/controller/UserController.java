@@ -24,13 +24,13 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @PostMapping("/updateUser")
+    @PutMapping("/updateUser")
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_MANAGER')")
     public String updateUser(@RequestBody UserRequest userRequest) {
         return userService.updateUser(userRequest);
     }
 
-    @PostMapping("/deleteUser/{id}")
+    @DeleteMapping("/deleteUser/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_MANAGER')")
     public String deleteUser(@RequestParam("id") int id) {
         return userService.deleteUser(id);

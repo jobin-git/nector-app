@@ -1,8 +1,6 @@
 package com.vishnu.Nectar.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -11,10 +9,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 @NoArgsConstructor
 public  class AuditLog {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true, nullable = false)
+    private String uniqueIdentifier;
     private String requestEndPoint;
     private String requestType;
+    @Column(columnDefinition = "LONGTEXT")
     private String responsePayload;
-    private String userId;
+    private String userName;
     private String time;
 }
