@@ -12,9 +12,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserInfoDetails implements UserDetails {
+    private List<GrantedAuthority> authorities;
     private String email;
     private String password;
-    private List<GrantedAuthority> authorities; //List of roles
 
     public UserInfoDetails(User user) {
         email = user.getEmail();
