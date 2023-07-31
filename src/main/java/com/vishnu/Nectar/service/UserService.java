@@ -15,10 +15,10 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private UserRepository userRepository;
 
     public String createUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
