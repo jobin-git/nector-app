@@ -6,7 +6,6 @@ import com.vishnu.Nectar.dto.UserResponse;
 import com.vishnu.Nectar.entity.User;
 import com.vishnu.Nectar.service.JwtService;
 import com.vishnu.Nectar.service.UserService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -70,6 +68,4 @@ public class UserController {
     public String deleteUser(@ApiParam(value = "User Id", required = true) @RequestParam("id") int id) {
         return userService.deleteUser(id);
     }
-
-
 }
