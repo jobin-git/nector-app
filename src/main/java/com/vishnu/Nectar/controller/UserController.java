@@ -65,7 +65,7 @@ public class UserController {
 
     @DeleteMapping("/deleteUser/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_MANAGER')")
-    public String deleteUser(@ApiParam(value = "User Id", required = true) @RequestParam("id") int id) {
+    public String deleteUser(@ApiParam(value = "User Id", required = true) @PathVariable("id") int id) {
         return userService.deleteUser(id);
     }
 }
